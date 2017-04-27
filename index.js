@@ -12,7 +12,7 @@ WindowResizeWatcher.prototype.handleResize = _.throttle(function (e) {
 
   var self = this;
   this.resizeId = setTimeout(function () {
-    this.vent.trigger("winresize:done");
+    self.vent.trigger("winresize:done");
   }, 300);
 
 }, 300);
