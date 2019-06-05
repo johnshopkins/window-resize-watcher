@@ -1,12 +1,12 @@
 /* global vent: false */
 
-var _ = require("./shims/underscore");
+var throttle = require('lodash.throttle');
 
 var WindowResizeWatcher = function (eventsObject) {
   this.vent = eventsObject;
 };
 
-WindowResizeWatcher.prototype.handleResize = _.throttle(function (e) {
+WindowResizeWatcher.prototype.handleResize = throttle(function (e) {
 
   if (this.resizeId) clearTimeout(this.resizeId);
 
@@ -18,11 +18,3 @@ WindowResizeWatcher.prototype.handleResize = _.throttle(function (e) {
 }, 300);
 
 module.exports = WindowResizeWatcher;
-
-/**
- * Usage
- */
-// $(function() {
-//   var resizer = new WindowResizeWatcher(vent);
-//   $(window).on("resize", resizer.handleResize.bind(resizer));
-// });

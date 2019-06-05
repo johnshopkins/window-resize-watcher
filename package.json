@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/johnshopkins/window-resize-watcher/issues"
   },
-  "homepage": "https://github.com/johnshopkins/window-resize-watcher#readme"
+  "homepage": "https://github.com/johnshopkins/window-resize-watcher#readme",
+  "devDependencies": {
+    "lodash.throttle": "^4.1.1"
+  }
 }
