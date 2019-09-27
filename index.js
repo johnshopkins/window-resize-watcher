@@ -2,18 +2,18 @@
 
 var throttle = require('lodash.throttle');
 
-var WindowResizeWatcher = function (eventsObject) {
+var WindowResizeWatcher = function (eventsObject, namespace) {
   this.vent = eventsObject;
+  this.eventName = namespace ? namespace + ':winresize:done' : 'winresize:done';
 };
 
-WindowResizeWatcher.prototype.handleResize = throttle(function (e) {
+WindowResizeWatcher.prototype.handleResize = throttle(function () {
 
-  if (this.resizeId) clearTimeout(this.resizeId);
+  if (this.resizeId) {
+    clearTimeout(this.resizeId);
+  }
 
-  var self = this;
-  this.resizeId = setTimeout(function () {
-    self.vent.trigger("winresize:done");
-  }, 300);
+  this.resizeId = setTimeout(() => this.vent.trigger(this.eventName), 300);
 
 }, 300);
 
