@@ -1,24 +1,16 @@
 # window resize window
 
-A module to use in conjunction with Backbone. Fires `winresize:done` (or `namespace:winsize:done` if namespace argument is passed) event when the browser window has been resized.
-
-### Dependencies
-
-* Backbone
-* Underscore
+Fires `winresize:done` (or `namespace:winsize:done` if namespace argument is passed) window event when the browser window has been resized.
 
 ### Usage
 
 ```JavaScript
+const WindowResizeWatcher = require('window-resize-watcher');
 
-var WindowResizeWatcher = require('window-resize-watcher');
+new WindowResizeWatcher('mynamespace');
 
-$(function() {
-
-  var bbevents = _.extend({}, Backbone.Events);
-
-  var resizer = new WindowResizeWatcher(bbevents, 'namespace');
-  $(window).on('resize', resizer.handleResize.bind(resizer));
-
+window.addEventListener('mynamespace:winresize:done', (e) => {
+  console.log('window resized');
 });
+
 ```
