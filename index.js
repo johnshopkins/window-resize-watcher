@@ -8,7 +8,6 @@ var WindowResizeWatcher = function (namespace) {
   window.addEventListener('resize', throttle(function (e) {
 
     var event = new CustomEvent(eventName, e);
-    event.initEvent(eventName, true, true);
     window.dispatchEvent(event);
 
   }, 300));
