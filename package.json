@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/johnshopkins/window-resize-watcher#readme",
   "dependencies": {
+    "custom-event-polyfill": "^1.0.7",
     "lodash.throttle": "^4.1.1"
   }
 }
