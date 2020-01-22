@@ -1,4 +1,4 @@
-require('./custom-event-polyfill');
+require('custom-event-polyfill');
 
 var throttle = require('lodash.throttle');
 
